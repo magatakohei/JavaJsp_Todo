@@ -64,8 +64,12 @@ public class TaskRegisterServlet extends HttpServlet {
 		try {
 			deadline = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("deadline"));
 		} catch (ParseException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			RequestDispatcher rd = request.getRequestDispatcher("/taskRegister.jsp");
+			
+			response.setContentType("text/html; charset=UTF-8");
+			rd.forward(request, response);
+			
+			return;
 		}
 
 		String person = request.getParameter("person");
