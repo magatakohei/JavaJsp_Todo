@@ -12,13 +12,13 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
   <body>
     <header>
       <div class="header_group">
-        <h1 class="header_title">登録タスク一覧</h1>
+        <h1 class="header_title">タスク一覧</h1>
         <a href="/Todo/taskRegister.jsp" class="btn_blue btn_md">登録へ</a>
       </div>
     </header>
     <main>
       <c:if test="${ empty sessionScope.notCompleteTaskList }">
-        <p>登録がありません</p>
+        <p class="recommend_text">未完了のタスクはありません。タスクの追加は<a href="/Todo/taskRegister.jsp">こちら＞</a>から！</p>
       </c:if>
       <c:if test="${ !empty sessionScope.notCompleteTaskList }">
         <div class="incomplete_content">
